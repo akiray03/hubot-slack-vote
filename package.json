@@ -1,7 +1,7 @@
 {
-  "name": "hubot-hubot-slack-vote",
+  "name": "hubot-slack-vote",
   "description": "A hubot script that does the things",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Akira Yumiyama <yumiyama.akira@gmail.com>",
   "license": "MIT",
 
@@ -9,11 +9,11 @@
 
   "repository": {
     "type": "git",
-    "url": "git://github.com/hubot-scripts/hubot-hubot-slack-vote.git"
+    "url": "git://github.com/akiray03/hubot-hubot-slack-vote.git"
   },
 
   "bugs": {
-    "url": "https://github.com/hubot-scripts/hubot-hubot-slack-vote/issues"
+    "url": "https://github.com/akiray03/hubot-hubot-slack-vote/issues"
   },
 
   "dependencies": {
