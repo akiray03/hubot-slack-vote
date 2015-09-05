@@ -1,4 +1,6 @@
-# hubot-hubot-slack-vote
+# hubot-slack-vote
+
+![screencapture](hubot-slack-vote.gif)
 
 A hubot script that does the things
 
@@ -8,17 +10,16 @@ See [`src/hubot-slack-vote.coffee`](src/hubot-slack-vote.coffee) for full docume
 
 In hubot project repo, run:
 
-`npm install hubot-hubot-slack-vote --save`
+`npm install hubot-slack-vote --save`
 
-Then add **hubot-hubot-slack-vote** to your `external-scripts.json`:
+Then add **hubot-slack-vote** to your `external-scripts.json`:
 
 ```json
-["hubot-hubot-slack-vote"]
+["hubot-slack-vote"]
 ```
 
 ## Sample Interaction
 
 ```
-user1>> hubot hello
-hubot>> hello!
+user1>> hubot vote :dog: :cat:
 ```
