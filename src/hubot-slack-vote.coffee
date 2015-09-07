@@ -11,6 +11,7 @@
 #   akiray03
 
 Promise = require 'promise'
+_ = require 'underscore'
 
 module.exports = (robot) ->
 
@@ -25,6 +26,7 @@ module.exports = (robot) ->
       vote = vote.replace(/^\s+/, '').replace(/\s+$/, '').replace(/\:/g, '')
       vote = 'thumbsup' if vote == '+1'
       votes.push vote
+    votes = _.uniq(votes)
 
     msg_id = msg.message.id
     channel = msg.message.rawMessage.channel

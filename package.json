@@ -4,23 +4,24 @@
   "version": "0.0.2",
   "author": "Akira Yumiyama <yumiyama.akira@gmail.com>",
   "license": "MIT",
-
-  "keywords": ["hubot-scripts","slack","reactions","vote"],
-
+  "keywords": [
+    "hubot-scripts",
+    "slack",
+    "reactions",
+    "vote"
+  ],
   "repository": {
     "type": "git",
     "url": "git://github.com/akiray03/hubot-hubot-slack-vote.git"
   },
-
   "bugs": {
     "url": "https://github.com/akiray03/hubot-hubot-slack-vote/issues"
   },
-
   "dependencies": {
     "coffee-script": "~1.6",
-    "promise": "*"
+    "promise": "*",
+    "underscore": "^1.8.3"
   },
-
   "devDependencies": {
     "mocha": "*",
     "chai": "*",
@@ -31,9 +32,7 @@
     "matchdep": "~0.1.2",
     "grunt-contrib-watch": "~0.5.3"
   },
-
   "main": "index.coffee",
-
   "scripts": {
     "test": "grunt test"
   }
