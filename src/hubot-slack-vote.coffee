@@ -43,10 +43,8 @@ module.exports = (robot) ->
         reactions(msg, token, vote, channel, msg_id)
           .then (json) ->
             handle_reactions(msg, token, votes, channel, msg_id)
-    
 
   reactions = (msg, token, vote, channel, msg_id) ->
-    delay = delay || 0
     params = "token=#{ token }&name=#{ vote }&channel=#{ channel }&timestamp=#{ msg_id }"
     url = "https://slack.com/api/reactions.add?#{ params }"
 
