@@ -26,7 +26,6 @@ module.exports = (robot) ->
       vote = 'thumbsup' if vote == '+1'
       votes.push vote
 
-    console.log msg.message
     msg_id = msg.message.id
     channel = msg.message.rawMessage.channel
     token = process.env.HUBOT_SLACK_VOTE_ACCESS_TOKEN
