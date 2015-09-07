@@ -2,7 +2,7 @@
 #   hubot slack vote
 #
 # Configuration:
-#   SLACK_ACCESS_TOKEN  # Slack API Token (does not Integration token)
+#   HUBOT_SLACK_VOTE_ACCESS_TOKEN  # Slack API Token (does not Integration token)
 #
 # Commands:
 #   hubot vote :emoji: :emoji2:
@@ -26,9 +26,9 @@ module.exports = (robot) ->
 
     msg_id = msg.message.id
     channel = msg.message.rawMessage.channel
-    token = process.env.SLACK_ACCESS_TOKEN
+    token = process.env.HUBOT_SLACK_VOTE_ACCESS_TOKEN
     unless token
-      robot.logger.error "SLACK_ACCESS_TOKEN does not defined."
+      robot.logger.error "HUBOT_SLACK_VOTE_ACCESS_TOKEN does not defined."
       return
 
     robot.logger.info votes
