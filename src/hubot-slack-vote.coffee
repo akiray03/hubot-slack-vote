@@ -59,7 +59,7 @@ module.exports = (robot) ->
         if body
           j = JSON.parse(body)
           if (not j.ok) and (j.error)
-            msg.send "auto reactions failed (#{ vote } -- reason: #{ body.error })"
+            msg.send "auto reactions failed (#{ vote } -- reason: #{ j.error })"
             reject()
 
           resolve(j)
