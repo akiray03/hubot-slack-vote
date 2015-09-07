@@ -10,6 +10,8 @@
 # Author:
 #   akiray03
 
+Promise = require 'promise'
+
 module.exports = (robot) ->
 
   robot.respond /vote(\s|\r\n|\n:?)(.*)/, (msg) ->
@@ -32,25 +34,34 @@ module.exports = (robot) ->
       return
 
     robot.logger.info votes
-    i = 0
-    for vote in votes
-      reactions(msg, token, vote, channel, msg_id, 500 * i)
-      i += 1
 
-  reactions = (msg, token, vote, channel, msg_id, delay) ->
+    handle_reactions(msg, token, votes, channel, msg_id)
+
+  handle_reactions = (msg, token, votes, channel, msg_id) ->
+      if votes.length > 0
+        vote = votes.shift()
+        reactions(msg, token, vote, channel, msg_id)
+          .then (json) ->
+            handle_reactions(msg, token, votes, channel, msg_id)
+    
+
+  reactions = (msg, token, vote, channel, msg_id) ->
     delay = delay || 0
     params = "token=#{ token }&name=#{ vote }&channel=#{ channel }&timestamp=#{ msg_id }"
     url = "https://slack.com/api/reactions.add?#{ params }"
-    setTimeout ->
+
+    new Promise (resolve, reject) ->
       robot.http(url).get() (err, res, body) ->
         robot.logger.info "#{ msg.envelope.room }:#{ msg_id } reactions #{ vote } --> #{ body }"
         if err
           msg.send "auto reactions failed (#{ vote })"
-          return
+          reject()
         if body
           j = JSON.parse(body)
           if (not j.ok) and (j.error)
             msg.send "auto reactions failed (#{ vote } -- reason: #{ body.error })"
-            return
-      , delay
+            reject()
+
+          resolve(j)
+        return
 
